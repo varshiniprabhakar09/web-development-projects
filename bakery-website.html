@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumbs | Bakery & Cake Shop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf5;
+            color: #39251f;
+            line-height: 1.6;
+        }
+
+        :root {
+            --brown: #5b3028;
+            --pink: #f6cbd0;
+            --cream: #fff4e8;
+            --accent: #c76b52;
+        }
+
+        header {
+            background: var(--brown);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffd4b8;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffc5cb;
+        }
+
+        .hero {
+            min-height: 570px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            background: linear-gradient(110deg, #fff0e6, #f9dadd);
+        }
+
+        .hero-content {
+            max-width: 520px;
+        }
+
+        .hero-content .tag {
+            color: var(--accent);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.15;
+            margin: 18px 0;
+            color: var(--brown);
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            margin-bottom: 28px;
+            color: #684b42;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--brown);
+        }
+
+        .hero-image {
+            width: 48%;
+            max-width: 550px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 48% 48% 12px 12px;
+            box-shadow: 0 12px 30px #6a342533;
+        }
+
+        section {
+            padding: 70px 7%;
+            scroll-margin-top: 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-heading p {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            color: var(--brown);
+            margin-top: 8px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #5b302812;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 19px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            color: var(--brown);
+        }
+
+        .product-info p {
+            color: #78645c;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .price {
+            color: var(--accent);
+            font-size: 21px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .offer {
+            background: var(--brown);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .offer img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .offer h2 {
+            font-size: 39px;
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .offer p {
+            margin-bottom: 22px;
+            color: #f5e4dc;
+        }
+
+        .offer-label {
+            display: inline-block;
+            background: #ffd6b8;
+            color: #5b3028;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .custom {
+            background: var(--cream);
+        }
+
+        .custom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .custom-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 22px;
+        }
+
+        .custom-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .custom-card h3 {
+            margin: 15px 0 5px;
+            color: var(--brown);
+        }
+
+        .custom-card p {
+            padding: 0 15px;
+            color: #78645c;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.025);
+        }
+
+        .order-section {
+            background: #f9e4df;
+        }
+
+        .order-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px #5b302815;
+        }
+
+        .order-container > p {
+            text-align: center;
+            color: #78645c;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: bold;
+            color: var(--brown);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0c9bf;
+            border-radius: 6px;
+            font: inherit;
+            background: #fffdfb;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            margin-top: 22px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .contact {
+            background: #fffaf5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .contact-card {
+            background: white;
+            text-align: center;
+            padding: 28px 18px;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px #5b302810;
+        }
+
+        .contact-card .emoji {
+            font-size: 32px;
+        }
+
+        .contact-card h3 {
+            margin: 10px 0;
+            color: var(--brown);
+        }
+
+        .contact-card p {
+            color: #78645c;
+        }
+
+        footer {
+            background: var(--brown);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        footer a {
+            color: #ffd4b8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .hero-image {
+                width: 45%;
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 13px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 280px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .products,
+            .custom-grid,
+            .gallery,
+            .contact-grid,
+            .offer {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+
+            .offer h2 {
+                font-size: 32px;
+            }
+
+            .offer img {
+                height: 260px;
+            }
+
+            .gallery img {
+                height: 250px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .order-container {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Sweet <span>Crumbs</span> 🍰</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Menu</a>
+        <a href="#offers">Offers</a>
+        <a href="#custom">Custom Cakes</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tag">Freshly Baked With Love</span>
+            <h1>A Little Sweetness Makes Life Better.</h1>
+            <p>
+                From creamy celebration cakes to delicious cookies,
+                every treat at Sweet Crumbs is made to bring a smile
+                to your face.
+            </p>
+            <a href="#products" class="btn">Explore Our Menu</a>
+            <a href="#order" class="btn">Order a Cake</a>
+        </div>
+
+        <img class="hero-image"
+             src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+             alt="Beautiful chocolate celebration cake">
+    </section>
+
+    <section id="products">
+        <div class="section-heading">
+            <p>Our Delicious Collection</p>
+            <h2>Fresh From Our Oven</h2>
+        </div>
+
+        <div class="products">
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                     alt="Chocolate birthday cake">
+                <div class="product-info">
+                    <h3>Chocolate Truffle Cake</h3>
+                    <p>Rich chocolate sponge with smooth ganache.</p>
+                    <div class="price">₹599</div>
+                    <a href="#order" class="btn">Order Now</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80"
+                     alt="Vanilla cream cake">
+                <div class="product-info">
+                    <h3>Vanilla Cream Cake</h3>
+                    <p>Soft vanilla layers with fresh cream.</p>
+                    <div class="price">₹499</div>
+                    <a href="#order" class="btn">Order Now</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80"
+                     alt="Sweet pastry dessert">
+                <div class="product-info">
+                    <h3>Fresh Cream Pastry</h3>
+                    <p>A delightful little treat for your sweet cravings.</p>
+                    <div class="price">₹90</div>
+                    <a href="#order" class="btn">Order Now</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"
+                     alt="Freshly baked cookies">
+                <div class="product-info">
+                    <h3>Choco Chip Cookies</h3>
+                    <p>Crispy edges, soft centres and chocolate chips.</p>
+                    <div class="price">₹180</div>
+                    <a href="#order" class="btn">Order Now</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="offer" id="offers">
+        <div>
+            <span class="offer-label">🎉 FESTIVE SPECIAL</span>
+            <h2>Make Every Celebration Sweeter!</h2>
+            <p>
+                Celebrate birthdays, festivals and special moments
+                with our handcrafted cakes and dessert boxes.
+                Enjoy a special 15% discount on selected festive orders.
+            </p>
+            <a href="#order" class="btn">Grab The Offer</a>
+            <p style="font-size:12px; margin-top:15px;">
+                *Demo offer. Confirm validity and terms with the store.
+            </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85"
+             alt="Beautiful bakery treats">
+    </section>
+
+    <section class="custom" id="custom">
+        <div class="section-heading">
+            <p>Made Just For You</p>
+            <h2>Custom Cake Designs</h2>
+        </div>
+
+        <div class="custom-grid">
+
+            <article class="custom-card">
+                <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=800&q=80"
+                     alt="Elegant custom celebration cake">
+                <h3>Birthday Cakes</h3>
+                <p>Personalised designs, colours and messages for your special day.</p>
+            </article>
+
+            <article class="custom-card">
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=80"
+                     alt="Decorated party cake">
+                <h3>Party Cakes</h3>
+                <p>Beautiful cakes for anniversaries, graduations and celebrations.</p>
+            </article>
+
+            <article class="custom-card">
+                <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=800&q=80"
+                     alt="Decorative cake for a celebration">
+                <h3>Designer Cakes</h3>
+                <p>Unique decorations and creative designs made to match your theme.</p>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="#order" class="btn">Request Your Custom Cake</a>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="section-heading">
+            <p>A Feast For Your Eyes</p>
+            <h2>Our Sweet Gallery</h2>
+        </div>
+
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=700&q=80"
+                 alt="Bakery dessert display">
+
+            <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=700&q=80"
+                 alt="Beautiful decorated cake">
+
+            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=700&q=80"
+                 alt="Fresh bakery cupcakes">
+
+            <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=700&q=80"
+                 alt="Freshly baked bakery goods">
+
+            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80"
+                 alt="Colourful cupcakes">
+
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80"
+                 alt="Sweet cakes and pastries">
+        </div>
+    </section>
+
+    <section class="order-section" id="order">
+        <div class="section-heading">
+            <p>Your Sweet Moment Awaits</p>
+            <h2>Place Your Cake Request</h2>
+        </div>
+
+        <div class="order-container">
+            <p>Tell us what you would love, and we'll help make it special!</p>
+
+            <form action="mailto:hello@sweetcrumbs.example"
+                  method="post" enctype="text/plain">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="Customer Name"
+                               placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone"
+                               placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Choose a Product</label>
+                        <select id="product" name="Product" required>
+                            <option value="">Select a product</option>
+                            <option>Chocolate Truffle Cake</option>
+                            <option>Vanilla Cream Cake</option>
+                            <option>Fresh Cream Pastry</option>
+                            <option>Choco Chip Cookies</option>
+                            <option>Custom Cake</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Required Date</label>
+                        <input type="date" id="date" name="Required Date" required>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="design">Cake Design / Message</label>
+                        <textarea id="design" name="Cake Details"
+                                  placeholder="Describe your design, flavour, size or message..."></textarea>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="address">Pickup / Delivery Details</label>
+                        <input type="text" id="address" name="Address"
+                               placeholder="Enter your preferred pickup or delivery details">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn submit-btn">
+                    Submit Cake Request
+                </button>
+            </form>
+
+            <p style="font-size:12px; margin-top:15px;">
+                This demo form uses your email application. It does not
+                automatically store orders or confirm a booking.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-heading">
+            <p>We Would Love To Hear From You</p>
+            <h2>Visit Our Bakery</h2>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <div class="emoji">📍</div>
+                <h3>Our Location</h3>
+                <p>123 Sweet Street<br>Vijayawada, Andhra Pradesh</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="emoji">📞</div>
+                <h3>Call Us</h3>
+                <p>+91 98765 43210</p>
+                <p>Replace with your store's real number.</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="emoji">🕒</div>
+                <h3>Opening Hours</h3>
+                <p>Monday – Sunday</p>
+                <p>9:00 AM – 9:00 PM</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="logo">Sweet <span>Crumbs</span> 🍰</div>
+    <p>Freshly baked happiness, one bite at a time.</p>
+    <p>
+        <a href="#home">Home</a> |
+        <a href="#products">Menu</a> |
+        <a href="#order">Order</a> |
+        <a href="#contact">Contact</a>
+    </p>
+    <p>© 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
